@@ -1,4 +1,6 @@
 
+from rest_framework.relations import StringRelatedField
+
 from brands.models import Brand
 from rest_framework import serializers
 
