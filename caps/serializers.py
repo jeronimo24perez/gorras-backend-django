@@ -9,7 +9,7 @@ class CapsSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Caps
-        fields =  ('url', 'id','name', 'description', 'price', 'stock', 'brand')
+        fields =  ('url', 'id','name', 'description', 'price', 'image', 'stock', 'brand')
     def create(self, validated_data):
         cap = Caps.objects.create(**validated_data)
         return cap
