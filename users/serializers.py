@@ -8,7 +8,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     token = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = CustomUser
-        fields = ('url', 'username', 'email', 'password', 'token', 'groups')
+        fields = ('url','id', 'username', 'email', 'password', 'token', 'groups')
         extra_kwargs = {'password': {'write_only': True}}
 
     def get_token(self, obj):
