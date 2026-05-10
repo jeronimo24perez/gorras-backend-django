@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -94,10 +94,10 @@ WSGI_APPLICATION = 'gorras_backend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
+DATABASE_URL = os.environ.get('DATABASE_URL')
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://neondb_owner:npg_9dNfjzcDO4Ze@ep-summer-lake-aqrlc3cd-pooler.c-8.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require',
+        default=DATABASE_URL,
         conn_max_age=600,
         ssl_require=True
     )
