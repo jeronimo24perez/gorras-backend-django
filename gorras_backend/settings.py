@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-lx4^atg7-^a3moj46&8vm06267r2pb7age6u)sv+%4yo)v@p=r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gorras-backend-django-1ui3.vercel.app', 'localhost', '127.0.0.1', 'http://localhost:5173/']
+ALLOWED_HOSTS = ['gorras-backend-django-1ui3.vercel.app', 'localhost', '127.0.0.1', 'http://localhost:5173/', "https://gorras-app.vercel.app"]
 
 
 # Application definition
