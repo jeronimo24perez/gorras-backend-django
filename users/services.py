@@ -2,6 +2,7 @@
 from django.forms import ValidationError
 from rest_framework.authtoken.models import Token
 from users.models import CustomUser
+from users.serializers import UserSerializer
 
 
 def auth_user_service(email, password):
@@ -13,3 +14,9 @@ def auth_user_service(email, password):
         raise ValidationError("Invalid email or password")
     token, created = Token.objects.get_or_create(user=user)
     return token.key
+
+def get_profile_by_token(request, header):
+    token = Token.objects.get(key=header.split(' ')[1])
+    user = CustomUser.objects.get(username=token.user)
+    serializer = UserSerializer(instance=user, context={'request': request})
+    return serializer.data
